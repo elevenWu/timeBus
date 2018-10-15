@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var ejs= require('ejs');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -11,7 +13,10 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('view engine', 'jade');
+
+app.engine('html', ejs.__express);
+app.set('view engine', 'html');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -34,8 +39,10 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
+  //console.log(err.message);
   res.status(err.status || 500);
   res.render('error');
+  //res.send("err");
 });
 
 module.exports = app;
