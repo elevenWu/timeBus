@@ -1,5 +1,13 @@
 <% include ../header.html %>
-<div>
+<div><%= title %>
 	时间巴士，一个站长也不知道能做什么的网站,先随便放了一个页面
+	<%=test %>
+}
+</div>
+	<% for(i in list){ %>
+		<span><%= list[i]['id'] + list[i]['name'] %></span><br />
+	<% } %>
+<div>
+	
 </div>
 <% include ../footer.html %>

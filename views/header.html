@@ -11,6 +11,9 @@
 				</div>
 				<div class="menu">
 					<a href="/">主页</a>
+					<% for(i in cat) {%>
+						<a href="/"><%=cat[i]['name'] %></a>
+					<% }%>
 					<a href="/users/about">关于站长</a>
 				</div>
 			</div>
